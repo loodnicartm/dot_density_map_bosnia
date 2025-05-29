@@ -19,4 +19,5 @@ Built using sf, ggplot2, rnaturalearth, dplyr, and tidyr.
 -Applications:
 Suitable for demographic visualization, cartographic storytelling, and public policy communication, especially where relative population size and distribution need to be quickly grasped.
 
+![BIH_dot_density](https://github.com/user-attachments/assets/f3f7d909-d610-494f-acd7-97fbf135ec62)
 
