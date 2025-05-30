@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 ```
 
-## 📦 1. Required packages
+## 1. Required packages
 
 ```{r packages}
 pacman::p_load(
@@ -22,7 +22,7 @@ pacman::p_load(
 )
 ```
 
-## 🌍 2. Population data from ArcGIS
+## 2. Population data from ArcGIS
 
 ```{r population-data}
 url <- "https://services1.arcgis.com/ZGrptGlLV2IILABw/arcgis/rest/services/Pop_Admin1/FeatureServer/0"
@@ -36,7 +36,7 @@ admin1_population <- arcgislayers::arc_select(
 ) |> sf::st_drop_geometry()
 ```
 
-## 🗺️ 3. Administrative Boundaries
+## 3. Administrative Boundaries
 
 ```{r aoi-boundaries}
 country_admin1_sf <- geodata::gadm(
@@ -48,7 +48,7 @@ country_admin1_sf <- geodata::gadm(
   sf::st_cast("MULTIPOLYGON")
 ```
 
-## 🧬 4. Merge Population and Spatial Data
+## 4. Merge Population and Spatial Data
 
 ```{r merge-data}
 crs <- "+proj=tmerc +lat_0=0 +lon_0=6 +k=1 +x_0=2500000 +y_0=0 +ellps=bessel +units=m +no_defs +type=crs"
@@ -60,7 +60,7 @@ country_admin1_population <- dplyr::left_join(
 ) |> sf::st_transform(crs = crs)
 ```
 
-## 🔘 5. Dot Density Calculation
+## 5. Dot Density Calculation
 
 ```{r dot-density}
 population_dots <- dots::dots_points(
@@ -71,7 +71,7 @@ population_dots <- dots::dots_points(
 )
 ```
 
-## 🖼️ 6. 2D Dot Density Map
+## 6. 2D Dot Density Map
 
 ```{r 2d-map, fig.width=8, fig.height=6}
 library(ggplot2)
@@ -83,7 +83,7 @@ ggplot() +
   theme_void()
 ```
 
-## 🏔️ 7. Elevation Data and DEM Matrix
+## 7. Elevation Data and DEM Matrix
 
 ```{r dem-matrix}
 dem <- elevatr::get_elev_raster(
@@ -96,7 +96,7 @@ dem_reproj <- dem |> terra::rast() |> terra::project(crs)
 dem_matrix <- rayshader::raster_to_matrix(dem_reproj)
 ```
 
-## 🗺️ 8. 3D Terrain Rendering with Boundary Overlay
+## 8. 3D Terrain Rendering with Boundary Overlay
 
 ```{r render-3d-boundary, eval=FALSE}
 dem_matrix |>
@@ -126,7 +126,7 @@ dem_matrix |>
 rayshader::render_camera(zoom = .75)
 ```
 
-## 🟡 9. Render Population Dots on 3D Terrain
+## 9. Render Population Dots on 3D Terrain
 
 ```{r render-3d-dots, eval=FALSE}
 coords <- sf::st_coordinates(population_dots)
@@ -152,7 +152,7 @@ rayshader::render_points(
 )
 ```
 
-## 💡 10. Final Rendering (HD Image)
+## 10. Final Rendering (HD Image)
 
 ```{r highquality-render, eval=FALSE}
 u <- "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/brown_photostudio_02_4k.hdr"
