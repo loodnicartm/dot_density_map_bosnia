@@ -21,3 +21,4 @@ Suitable for demographic visualization, cartographic storytelling, and public po
 
 ![BIH_dot_density](https://github.com/user-attachments/assets/f3f7d909-d610-494f-acd7-97fbf135ec62)
 
+Adopted after: Miloš Popović
