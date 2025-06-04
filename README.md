@@ -11,7 +11,7 @@ Use of geom_sf() for administrative boundaries and point plotting
 
 Coordinate transformation and reprojection for proper cartographic display
 
-Styled using ggplot2 with customized color palette for both basemap and dot layer
+Styled using ggplot2 with a customized color palette for both basemap and dot layer
 
 -Tools & Packages:
 Built using sf, ggplot2, rnaturalearth, dplyr, and tidyr.
